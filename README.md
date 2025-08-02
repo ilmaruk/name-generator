@@ -22,12 +22,15 @@ The library currently supports the following:
 - **ISO 2-Letter Code**. API allowing requests through countries 2-Letter code along the library enum.
 
 - **Countries Supported**. Currently, the following countries are supported by the library and contain a relevant database (unchecked countries are currently lacking or contain an incomplete database): 
-  - [X] Australia
   - [X] Argentina
+  - [X] Australia
+  - [X] Austria
+  - [X] Belgium
   - [X] Brazil
   - [X] Bulgaria
   - [X] Canada
   - [X] China
+  - [X] Croatia
   - [X] Denmark
   - [X] Finland
   - [x] France
@@ -35,12 +38,14 @@ The library currently supports the following:
   - [X] Italy
   - [X] Kazakhstan
   - [X] Mexico
+  - [X] Netherlands
   - [X] Norway
   - [X] Poland
   - [X] Portugal
   - [X] Russia
   - [x] Spain
   - [X] Sweden
+  - [X] Switzerland
   - [X] Turkey
   - [X] Ukraine
   - [X] United Kingdom

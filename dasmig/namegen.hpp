@@ -30,15 +30,21 @@ namespace dasmig
         // Culture representing a country or a broader group (e.g danish, german)
         enum class culture
         {
+            albanian,
             american,
             argentinian,
             australian,
+            austrian,
+            belgian,
             brazilian,
             british,
             bulgarian,
             canadian,
             chinese,
+            croatian,
+            czech,
             danish,
+            dutch,
             finnish,
             french,
             german,
@@ -49,8 +55,10 @@ namespace dasmig
             polish,
             portuguese,
             russian,
+            slovenian,
             spanish,
             swedish,
+            swiss,
             turkish,
             ukrainian,
             any
@@ -181,7 +189,7 @@ namespace dasmig
         {
             // Maps ISO 3166 2-letter country codes to internal culture enum.
             static const std::map<std::wstring, culture> country_code_map = {
-                {L"ar", culture::argentinian}, {L"us", culture::american}, {L"au", culture::australian}, {L"br", culture::brazilian}, {L"gb", culture::british}, {L"bg", culture::bulgarian}, {L"ca", culture::canadian}, {L"cn", culture::chinese}, {L"dk", culture::danish}, {L"fi", culture::finnish}, {L"fr", culture::french}, {L"de", culture::german}, {L"it", culture::italian}, {L"kz", culture::kazakh}, {L"mx", culture::mexican}, {L"no", culture::norwegian}, {L"pl", culture::polish}, {L"pt", culture::portuguese}, {L"ru", culture::russian}, {L"es", culture::spanish}, {L"se", culture::swedish}, {L"tr", culture::turkish}, {L"ua", culture::ukrainian}};
+                {L"al", culture::albanian}, {L"ar", culture::argentinian}, {L"us", culture::american}, {L"at", culture::austrian}, {L"au", culture::australian}, {L"be", culture::belgian}, {L"br", culture::brazilian}, {L"gb", culture::british}, {L"bg", culture::bulgarian}, {L"ca", culture::canadian}, {L"cn", culture::chinese}, {L"hr", culture::croatian}, {L"cz", culture::czech}, {L"dk", culture::danish}, {L"nl", culture::dutch}, {L"fi", culture::finnish}, {L"fr", culture::french}, {L"de", culture::german}, {L"it", culture::italian}, {L"kz", culture::kazakh}, {L"mx", culture::mexican}, {L"no", culture::norwegian}, {L"pl", culture::polish}, {L"pt", culture::portuguese}, {L"ru", culture::russian}, {L"si", culture::slovenian}, {L"es", culture::spanish}, {L"se", culture::swedish}, {L"ch", culture::swiss}, {L"tr", culture::turkish}, {L"ua", culture::ukrainian}};
 
             return (country_code_map.find(country_code) != country_code_map.end())
                        ? country_code_map.at(country_code)

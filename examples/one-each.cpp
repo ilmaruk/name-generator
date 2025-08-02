@@ -7,6 +7,8 @@ std::wostream &operator<<(std::wostream &wos, const ng::culture &c)
 {
     switch (c)
     {
+    case ng::culture::albanian:
+        return wos << "Albania";
     case ng::culture::american:
         return wos << "American";
     case ng::culture::argentinian:
@@ -15,6 +17,8 @@ std::wostream &operator<<(std::wostream &wos, const ng::culture &c)
         return wos << "Australian";
     case ng::culture::austrian:
         return wos << "Austrian";
+    case ng::culture::belgian:
+        return wos << "Belgian";
     case ng::culture::brazilian:
         return wos << "Brazilian";
     case ng::culture::british:
@@ -25,8 +29,14 @@ std::wostream &operator<<(std::wostream &wos, const ng::culture &c)
         return wos << "Canadian";
     case ng::culture::chinese:
         return wos << "Chinese";
+    case ng::culture::croatian:
+        return wos << "Croatia";
+    case ng::culture::czech:
+        return wos << "Czechia";
     case ng::culture::danish:
         return wos << "Danish";
+    case ng::culture::dutch:
+        return wos << "Dutch";
     case ng::culture::finnish:
         return wos << "Finnish";
     case ng::culture::french:
@@ -47,6 +57,8 @@ std::wostream &operator<<(std::wostream &wos, const ng::culture &c)
         return wos << "Portuguese";
     case ng::culture::russian:
         return wos << "Russian";
+    case ng::culture::slovenian:
+        return wos << "Slovenia";
     case ng::culture::spanish:
         return wos << "Spanish";
     case ng::culture::swedish:
@@ -75,24 +87,52 @@ std::wostream &operator<<(std::wostream &wos, const ng::gender &g)
     }
 }
 
+constexpr ng::culture all_cultures[] = {
+    ng::culture::albanian,
+    ng::culture::american,
+    ng::culture::argentinian,
+    ng::culture::australian,
+    ng::culture::austrian,
+    ng::culture::belgian,
+    ng::culture::brazilian,
+    ng::culture::british,
+    ng::culture::bulgarian,
+    ng::culture::canadian,
+    ng::culture::chinese,
+    ng::culture::croatian,
+    ng::culture::czech,
+    ng::culture::danish,
+    ng::culture::dutch,
+    ng::culture::finnish,
+    ng::culture::french,
+    ng::culture::german,
+    ng::culture::italian,
+    ng::culture::kazakh,
+    ng::culture::mexican,
+    ng::culture::norwegian,
+    ng::culture::polish,
+    ng::culture::portuguese,
+    ng::culture::russian,
+    ng::culture::slovenian,
+    ng::culture::spanish,
+    ng::culture::swedish,
+    ng::culture::swiss,
+    ng::culture::turkish,
+    ng::culture::ukrainian,
+};
+
 int main()
 {
     ng::instance().load("../resources");
 
-    // Generate 10 names in the same random culture and gender.
-    auto name = ng::instance().get_name().append_surname();
-    std::wcout << name.get_culture() << L"|" << name.get_gender()
-               << L": " << name
-               << std::endl;
-
-    auto culture = name.get_culture();
-    auto gender = name.get_gender();
-    for (int i = 1; i < 10; ++i)
+    // Generate one name per gender and culture.
+    for (const auto &culture : all_cultures)
     {
-        auto name = ng::instance().get_name(gender, culture).append_surname(culture);
-        std::wcout << name.get_culture() << L"|" << name.get_gender()
-                   << L": " << name
-                   << std::endl;
+        auto him = ng::instance().get_name(ng::gender::f, culture).append_surname();
+        auto her = ng::instance().get_name(ng::gender::m, culture).append_surname();
+        std::wcout << culture << L" | "
+                   << her << L" | "
+                   << him << std::endl;
     }
 
     return 0;
