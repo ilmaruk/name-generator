@@ -31,6 +31,8 @@ std::wostream &operator<<(std::wostream &wos, const ng::culture &c)
         return wos << "French";
     case ng::culture::german:
         return wos << "German";
+    case ng::culture::italian:
+        return wos << "Italian";
     case ng::culture::kazakh:
         return wos << "Kazakh";
     case ng::culture::mexican:
@@ -72,10 +74,22 @@ std::wostream &operator<<(std::wostream &wos, const ng::gender &g)
 int main()
 {
     ng::instance().load("../resources");
+
+    // Generate 10 names in the same random culture and gender.
     auto name = ng::instance().get_name().append_surname();
     std::wcout << name.get_culture() << L"|" << name.get_gender()
                << L": " << name
                << std::endl;
+
+    auto culture = name.get_culture();
+    auto gender = name.get_gender();
+    for (int i = 1; i < 10; ++i)
+    {
+        auto name = ng::instance().get_name(gender, culture).append_surname(culture);
+        std::wcout << name.get_culture() << L"|" << name.get_gender()
+                   << L": " << name
+                   << std::endl;
+    }
 
     return 0;
 }

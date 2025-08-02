@@ -32,6 +32,7 @@ The library currently supports the following:
   - [X] Finland
   - [x] France
   - [X] Germany
+  - [X] Italy
   - [X] Kazakhstan
   - [X] Mexico
   - [X] Norway
